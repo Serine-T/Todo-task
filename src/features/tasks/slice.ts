@@ -61,6 +61,8 @@ const tasksSlice = createSlice({
       state.tasks.forEach((task) => {
         if (task.deadline && task.deadline < now) {
           task.status = 'Overdue';
+        } else if (task.status === 'Overdue') {
+          task.status = 'Pending';
         }
       });
     },

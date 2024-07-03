@@ -7,7 +7,7 @@ import confirmOptionsDialog from '@containers/common/Confirm';
 import { useNavigate } from 'react-router-dom';
 import { StyledTableCell } from '@containers/common/Table/styled';
 import { markTaskAsCompleted, removeTask } from '@features/tasks/slice';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '@features/app/hooks';
 
 interface IActionsCells {
     status: ITask['status'];
@@ -17,7 +17,7 @@ interface IActionsCells {
 const ActionsCells = ({ id, status }: IActionsCells) => {
   const confirm = useConfirm();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const deleteAction = () => {
     dispatch(removeTask(id));
